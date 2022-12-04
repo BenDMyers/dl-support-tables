@@ -5,7 +5,11 @@
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 	--surface: var(--gray-9);
+	--surface-table: var(--gray-8);
 	--ink: var(--gray-2);
+	--ink-link: var(--blue-4);
+	--ink-code: var(--choco-3);
+	--ink-kbd: var(--violet-3);
 	--lines: var(--gray-7);
 	--surface-good: var(--green-12);
 	--ink-good: var(--green-0);
@@ -15,30 +19,55 @@
 	--ink-caution: var(--camo-0);
 	--surface-buggy: var(--pink-12);
 	--ink-buggy: var(--pink-1);
-	--row-hover: rgba(255, 255, 255, 0.1);
+	--row-hover: var(--gray-7);
 
-	@media (--motionOK) {
+	@media (prefers-reduced-motion: no-preference) {
 		--background-animation: 0.2s background-color ease-in-out
 	}
 
-	@media (--OSlight) {
-		--surface: var(--gray-2);
+	@media (prefers-color-scheme: light) {
+		--surface: var(--gray-3);
+		--surface-table: var(--gray-1);
 		--ink: var(--gray-11);
+		--ink-link: var(--blue-7);
+		--ink-code: var(--orange-10);
+		--ink-kbd: var(--violet-7);
+		--lines: var(--gray-5);
+		--surface-good: var(--lime-3);
+		--ink-good: var(--lime-12);
+		--surface-fine: var(--cyan-2);
+		--ink-fine: var(--cyan-12);
+		--surface-caution: var(--yellow-2);
+		--ink-caution: var(--yellow-12);
+		--surface-buggy: var(--red-2);
+		--ink-buggy: var(--red-12);
+		--row-hover: var(--indigo-1);
 	}
 
 	background-color: var(--surface);
 	color: var(--ink);
 }
 
+*:focus-visible {	
+	outline: 3px solid var(--blue-6);
+	outline-offset: var(--size-1);
+}			
+
 header {
 	display: grid;
 	place-items: center;
 	margin-block-end: var(--size-7);
+
+	h1 {
+		font-weight: 900;
+		font-size: var(--font-size-6)
+	}
 }
 
 main {
 	display: grid;
 	place-items: center;
+	margin-block-end: var(--size-8);
 
 	& > * {
 		margin-inline: auto;
@@ -56,6 +85,8 @@ main {
 table {
 	max-width: 100ch;
 	width: 100%;
+	border-collapse: separate !important;
+	border-radius: var(--border-radius-3);
 
 	caption {
 		font-weight: 800;
@@ -65,6 +96,7 @@ table {
 
 	tr {
 		transition: var(--background-animation);
+		background-color: var(--surface-table);
 		&:hover {
 			background-color: var(--row-hover);
 
@@ -72,6 +104,13 @@ table {
 			--surface-fine: var(--cyan-11);
 			--surface-caution: var(--camo-11);
 			--surface-buggy: var(--pink-11);
+
+			@media (prefers-color-scheme: light) {
+				--surface-good: var(--lime-4);
+				--surface-fine: var(--cyan-3);
+				--surface-caution: var(--yellow-3);
+				--surface-buggy: var(--red-3);
+			}
 		}
 
 		th {
@@ -116,7 +155,7 @@ details {
 		transition: var(--background-animation);
 		
 		&:hover {
-			background-color: rgba(0, 0, 0, 0.3);
+			background-color: rgba(0, 0, 0, 0.2);
 		}
 
 		&::after {
@@ -139,4 +178,22 @@ details {
 			}
 		}
 	}
+}
+
+a {
+	color: var(--ink-link);
+	text-underline-offset: var(--size-1);
+	font-weight: 600;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+code {
+	color: var(--ink-code);
+}
+
+kbd {
+	color: var(--ink-kbd);
 }
