@@ -7,6 +7,8 @@ const sass = require('eleventy-sass');
  */
 module.exports = function (eleventyConfig) {
 	eleventyConfig.addPlugin(sass);
+	eleventyConfig.setServerPassthroughCopyBehavior('copy');
+	eleventyConfig.addPassthroughCopy('src/assets');
 
 	return {
 		dir: {
