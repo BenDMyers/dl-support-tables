@@ -22,7 +22,6 @@ module.exports = async function() {
 	const parsed = {};
 	for (let row of rows) {
 		const rowHeading = row.querySelector('th');
-		console.log(rowHeading.innerHTML)
 		const [platform, method] = rowHeading
 			.innerHTML
 			.replace('Safari:<br>', 'Safari')
@@ -53,7 +52,6 @@ module.exports = async function() {
 	}
 
 	const [_platformHeader, ...columnHeaders] = [...header.querySelectorAll('th')].map(th => th.textContent);
-	console.log(columnHeaders);
 	return {data: parsed, headers: ['Method', ...columnHeaders]};
 }
 
@@ -71,7 +69,6 @@ function parseFinding(cell, footnotes) {
 	/** @type {string[]} */
 	const linkedFootnotes = [];
 	for (index of linkedFootnoteIndices) {
-		console.log({index})
 		linkedFootnotes.push(footnotes[index]);
 	}
 	
