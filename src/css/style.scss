@@ -15,6 +15,11 @@
 	--ink-caution: var(--camo-0);
 	--surface-buggy: var(--pink-12);
 	--ink-buggy: var(--pink-1);
+	--row-hover: rgba(255, 255, 255, 0.1);
+
+	@media (--motionOK) {
+		--background-animation: 0.2s background-color ease-in-out
+	}
 
 	@media (--OSlight) {
 		--surface: var(--gray-2);
@@ -23,6 +28,12 @@
 
 	background-color: var(--surface);
 	color: var(--ink);
+}
+
+header {
+	display: grid;
+	place-items: center;
+	margin-block-end: var(--size-7);
 }
 
 main {
@@ -43,18 +54,35 @@ main {
 }
 
 table {
-	width: 100ch;
 	max-width: 100ch;
+	width: 100%;
 
 	caption {
 		font-weight: 800;
 		font-size: var(--font-size-5);
-		margin-bottom: var(--size-2);
+		margin-bottom: var(--size-3);
+	}
+
+	tr {
+		transition: var(--background-animation);
+		&:hover {
+			background-color: var(--row-hover);
+
+			--surface-good: var(--green-11);
+			--surface-fine: var(--cyan-11);
+			--surface-caution: var(--camo-11);
+			--surface-buggy: var(--pink-11);
+		}
+
+		th {
+			width: 20%;
+		}
 	}
 
 	th, td {
 		outline: 1px solid var(--lines);
 		padding: var(--size-3);
+		transition: var(--background-animation);
 
 		&.finding {
 			width: 20%;
@@ -85,7 +113,7 @@ table {
 details {
 	summary {
 		cursor: pointer;
-		transition: 0.2s background-color ease-in-out;
+		transition: var(--background-animation);
 		
 		&:hover {
 			background-color: rgba(0, 0, 0, 0.3);
