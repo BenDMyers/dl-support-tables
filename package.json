@@ -11,8 +11,9 @@
 	"author": "Ben Myers <ben@benmyers.dev>",
 	"license": "ISC",
 	"dependencies": {
-		"@11ty/eleventy": "^1.0.2",
+		"@11ty/eleventy": "^2.0.0-canary.18",
 		"@11ty/eleventy-fetch": "^3.0.0",
+		"@11ty/eleventy-plugin-webc": "^0.7.0",
 		"jsdom": "^20.0.3"
 	}
 }
