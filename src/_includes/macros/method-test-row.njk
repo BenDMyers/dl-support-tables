@@ -1,0 +1,11 @@
+{%- from 'macros/finding-cell.njk' import findingCell %}
+
+{%- macro methodTestRow(params) -%}
+<tr>
+	<th scope="row">{{ params.method | safe }}</th>
+	{{ findingCell(params.noAria) }}
+	{{ findingCell(params.termDefinitionAria) }}
+	{{ findingCell(params.associationListAria) }}
+	<td>{{ params.roundup | safe }}</td>
+</tr>
+{%- endmacro -%}

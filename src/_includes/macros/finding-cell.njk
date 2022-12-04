@@ -1,0 +1,12 @@
+{%- macro findingCell(params) -%}
+<td class="finding {{ params.verdictClass }}">
+	<details>
+		<summary>{{ params.verdict }}</summary>
+		<ul>
+			{% for footnote in params.footnotes %}
+			<li>{{ footnote }}</li>
+			{% endfor %}
+		</ul>
+	</details>
+</td>
+{%- endmacro -%}

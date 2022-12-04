@@ -1,4 +1,4 @@
-const webc = require('@11ty/eleventy-plugin-webc');
+const sass = require('eleventy-sass');
 
 /**
  * @typedef {import('@11ty/eleventy/src/UserConfig')} EleventyConfig
@@ -6,8 +6,8 @@ const webc = require('@11ty/eleventy-plugin-webc');
  * @type {(eleventyConfig: EleventyConfig) => EleventyReturnValue}
  */
 module.exports = function (eleventyConfig) {
-	eleventyConfig.addPlugin(webc);
-	
+	eleventyConfig.addPlugin(sass);
+
 	return {
 		dir: {
 			input: 'src'

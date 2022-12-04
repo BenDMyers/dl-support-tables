@@ -1,0 +1,22 @@
+{%- from 'macros/method-test-row.njk' import methodTestRow %}
+
+{%- macro formatTable(params) -%}
+{% set captionId = params.caption | slugify %}
+<div role="region" tabindex="0" aria-labelledby="{{ captionId }}">
+	<table>
+		<caption id="{{ captionId }}">{{ params.caption }}</caption>
+		<thead>
+			<th scope="col">Method</th>
+			<th scope="col">1. No ARIA</th>
+			<th scope="col">2. ARIA 1.1 Term/Definition Roles</th>
+			<th scope="col">3. ARIA 1.3 (Draft) Association List Roles</th>
+			<th scope="col">Roundup</th>
+		</thead>
+		<tbody>
+			{% for row in params.rows %}
+			{{ methodTestRow(row) }}
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{%- endmacro -%}

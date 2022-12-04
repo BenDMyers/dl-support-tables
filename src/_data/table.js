@@ -52,8 +52,9 @@ module.exports = async function() {
 		parsed[platform].push(methodTestRow);
 	}
 
-	console.log(parsed);
-	return parsed;
+	const [_platformHeader, ...columnHeaders] = [...header.querySelectorAll('th')].map(th => th.textContent);
+	console.log(columnHeaders);
+	return {data: parsed, headers: ['Method', ...columnHeaders]};
 }
 
 /**

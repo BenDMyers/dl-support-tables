@@ -1,0 +1,114 @@
+@import 'https://unpkg.com/open-props';
+
+:root {
+	color-scheme: dark light;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+	--surface: var(--gray-9);
+	--ink: var(--gray-2);
+	--lines: var(--gray-7);
+	--surface-good: var(--green-12);
+	--ink-good: var(--green-0);
+	--surface-fine: var(--cyan-12);
+	--ink-fine: var(--cyan-0);
+	--surface-caution: var(--camo-12);
+	--ink-caution: var(--camo-0);
+	--surface-buggy: var(--pink-12);
+	--ink-buggy: var(--pink-1);
+
+	@media (--OSlight) {
+		--surface: var(--gray-2);
+		--ink: var(--gray-11);
+	}
+
+	background-color: var(--surface);
+	color: var(--ink);
+}
+
+main {
+	display: grid;
+	place-items: center;
+
+	& > * {
+		margin-inline: auto;
+
+		& + * {
+			margin-top: var(--size-10);
+		}
+	}
+}
+
+[tabindex] {
+	overflow-x: auto;
+}
+
+table {
+	width: 100ch;
+	max-width: 100ch;
+
+	caption {
+		font-weight: 800;
+		font-size: var(--font-size-5);
+		margin-bottom: var(--size-2);
+	}
+
+	th, td {
+		outline: 1px solid var(--lines);
+		padding: var(--size-3);
+
+		&.finding {
+			width: 20%;
+
+			&.good {
+				background-color: var(--surface-good);
+				color: var(--ink-good);
+			}
+
+			&.fine {
+				background-color: var(--surface-fine);
+				color: var(--ink-fine);
+			}
+
+			&.caution {
+				background-color: var(--surface-caution);
+				color: var(--ink-caution);
+			}
+
+			&.buggy {
+				background-color: var(--surface-buggy);
+				color: var(--ink-buggy);
+			}
+		}
+	}
+}
+
+details {
+	summary {
+		cursor: pointer;
+		transition: 0.2s background-color ease-in-out;
+		
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.3);
+		}
+
+		&::after {
+			margin-inline-start: var(--size-2);
+
+			.good & {
+				content: '✅'
+			}
+
+			.buggy & {
+				content: '⛔'
+			}
+		}
+	}
+
+	ul {
+		li {
+			& + li {
+				margin-top: var(--size-3);
+			}
+		}
+	}
+}
