@@ -33,9 +33,9 @@
 		--ink-code: var(--orange-10);
 		--ink-kbd: var(--violet-7);
 		--lines: var(--gray-5);
-		--surface-good: var(--lime-3);
+		--surface-good: var(--green-2);
 		--ink-good: var(--lime-12);
-		--surface-fine: var(--cyan-2);
+		--surface-fine: var(--blue-1);
 		--ink-fine: var(--cyan-12);
 		--surface-caution: var(--yellow-2);
 		--ink-caution: var(--yellow-12);
@@ -106,8 +106,8 @@ table {
 			--surface-buggy: var(--pink-11);
 
 			@media (prefers-color-scheme: light) {
-				--surface-good: var(--lime-4);
-				--surface-fine: var(--cyan-3);
+				--surface-good: var(--green-3);
+				--surface-fine: var(--blue-2);
 				--surface-caution: var(--yellow-3);
 				--surface-buggy: var(--red-3);
 			}
