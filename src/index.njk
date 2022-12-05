@@ -35,6 +35,23 @@
 		<p>An alternate formatting of the <code>&lt;dl&gt;</code> support tables from <a href="https://adrianroselli.com/2022/12/brief-note-on-description-list-support.html">Adrian Roselli's December 2022 tests</a>. Last built <time datetime="{{ site.buildDateUtc }}">{{ site.formattedBuildDate }}</time>.</p>
 	</header>
 	<main>
+		<section>
+			<h2>Key</h2>
+			<ul>
+				<li class="legend-good">
+					<strong>Yup ✅:</strong> Adrian's ideal implementation
+				</li>
+				<li class="legend-fine">
+					<strong>Sure:</strong> This implementation is good enough
+				</li>
+				<li class="legend-caution">
+					<strong>Wut:</strong> Conveys the critical bits at least
+				</li>
+				<li class="legend-buggy">
+					<strong>Nope ⛔:</strong> Broken (no or incorrect semantics conveyed)
+				</li>
+			</ul>
+		</section>
 		{% for caption, rows in table.data %}
 		{{ formatTable({caption: caption, rows: rows}) }}
 		{% endfor %}

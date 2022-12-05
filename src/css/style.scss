@@ -170,12 +170,12 @@ details {
 			}
 		}
 	}
+}
 
-	ul {
-		li {
-			& + li {
-				margin-top: var(--size-3);
-			}
+ul {
+	li {
+		& + li {
+			margin-top: var(--size-3);
 		}
 	}
 }
@@ -196,4 +196,27 @@ code {
 
 kbd {
 	color: var(--ink-kbd);
+}
+
+strong {
+	.legend-good & {
+		background-color: var(--surface-good);
+		color: var(--ink-good);
+		padding: var(--size-1);
+	}
+	.legend-fine & {
+		background-color: var(--surface-fine);
+		color: var(--ink-fine);
+		padding: var(--size-1);
+	}
+	.legend-caution & {
+		background-color: var(--surface-caution);
+		color: var(--ink-caution);
+		padding: var(--size-1);
+	}
+	.legend-buggy & {
+		background-color: var(--surface-buggy);
+		color: var(--ink-buggy);
+		padding: var(--size-1);
+	}
 }
