@@ -1,0 +1,15 @@
+# https://dev.to/chantastic/schedule-netlify-builds-with-github-actions-chron-and-webhooks-17n7
+
+name: Schedule Netlify Build
+on:
+  schedule:
+    # Customize schedule expression at crontab.guru
+    # Build at 15:00 on the 1st of every month
+    - cron: "0 15 1 * *"
+jobs:
+  build:
+    name: Call Netlify build hook
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl request
+        run: curl -X POST -d {} "$NETLIFY_BUILD_HOOK"
